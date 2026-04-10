@@ -1,0 +1,93 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(0, 212, 255, 0.3);
+  color: white;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background-color: #111;
+}
+
+/* Prevent text selection on interactive elements */
+button,
+a {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Custom cursor for interactive elements */
+@media (hover: hover) {
+  button:hover,
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile touch improvements */
+@media (pointer: coarse) {
+  .tilt-card {
+    transform: none !important;
+  }
+}
+
+/* Loading state */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
